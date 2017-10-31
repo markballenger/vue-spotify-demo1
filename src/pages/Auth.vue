@@ -1,8 +1,10 @@
 <template>
 
-    <div>
+      <v-layout row>
+          <v-flex xs12 sm12 offset-sm3>
         access_token: {{$route.params.access_token}}
-    </div>
+        </v-flex>
+    </v-layout>
 
 </template>
 
@@ -10,8 +12,9 @@
 import spotify from '../spotify'
 export default {
     mounted () {
-        spotify.setToken(this.$route.params.access_token)
-        // this.$router.push('/artists')
+        if (this.$route.params.access_token) {
+            spotify.setToken(this.$route.params.access_token)
+        }
     }
 }
 </script>

@@ -1,29 +1,31 @@
 <template>
-<div>
   <v-layout row>
-    <v-flex xs12 sm12 >
-
-      <v-container fluid grid-list-sm>
-        <v-container fluid>
-          <v-layout row wrap>
-            <v-flex xs2 v-for="a in artists" :key="a.name">
-              <v-card>
-                <v-card-media>
-                  <img class="image" :src="a.images[1].url"  :width="100" :height="100">
-                </v-card-media>
-                <v-card-actions>
-                  <v-btn icon>
-                    <v-icon>home</v-icon></v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
-        
-      </v-container>
+    <v-flex xs12 sm12 offset-sm1>
+      <v-card>
+        <v-toolbar color="cyan" dark>
+          <v-toolbar-side-icon></v-toolbar-side-icon>
+          <v-toolbar-title>Artists</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-list two-line>
+          <template v-for="item in artists">
+            <v-list-tile avatar v-bind:key="item.name" >
+              <v-list-tile-avatar>
+                <img v-bind:src="item.images[0].url" />
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title v-html="item.name"></v-list-tile-title>
+                <v-list-tile-sub-title v-html="item.genres[0]"></v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+        </v-list>
+      </v-card>
     </v-flex>
   </v-layout>
- </div>
 </template>
 
 <script>

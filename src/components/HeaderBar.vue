@@ -5,13 +5,11 @@
     <v-navigation-drawer 
       dark 
       permanent
-      absolute
       :mini-variant.sync="mini" 
-      v-model="drawer" 
       overflow>
       
       <v-toolbar  flat class="transparent">
-        <v-list class="pa-0">
+        <v-list>
 
           <!-- todo: implement avatar component -->
           <v-list-tile avatar>
@@ -33,27 +31,22 @@
       </v-toolbar>
 
       
-      <v-list class="pt-0" dense dark>
-        <v-divider></v-divider>
-        <v-list-tile v-for="item in items" dark  :key="item.title" :to="item.route" @click="mini = true">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content >
-            <v-list-tile-title @click="close()">
-              {{item.title}}
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
+        <v-list dense dark>
+          <v-divider></v-divider>
+          <v-list-tile v-for="item in items" dark  :key="item.title" :to="item.route">
+            <v-list-tile-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{item.title}}
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+        
     </v-navigation-drawer>
 
-
-
-    <v-toolbar fixed  dark>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
-    </v-toolbar>
     
   </div>
 
@@ -64,13 +57,10 @@ import { mapGetters } from 'vuex'
 
 export default {
 	computed: {
-        ...mapGetters([])
-    },
-    methods: {
-        close: function () {
-            this.mini = true
-        }
-    },
+      ...mapGetters([])
+  },
+  methods: {
+  },
 	data () {
 		return {
 			drawer: null,

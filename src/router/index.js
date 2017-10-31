@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Artists from '@/pages/Artists'
 import Auth from '@/pages/Auth'
 
@@ -11,7 +11,7 @@ export default new Router({
 		{
 			path: '/',
 			name: 'Hello',
-			component: HelloWorld
+			component: Auth
 		},
 		{
 			path: '/artists',
